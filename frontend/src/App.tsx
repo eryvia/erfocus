@@ -1,41 +1,38 @@
+import React from 'react'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-  
 
-  const alot = () => {
-    setCount(count + 1)
+  interface dateValue {
+      days?: boolean,
+      hours?: boolean,
+      minutes?: boolean,
+      seconds?: boolean
   }
 
+  const DateTime: React.FC<dateValue> = ({ days, hours, minutes, seconds }) => {
+    const now: Date = new Date();
+    let time: string = "";
+    if (days === undefined && hours === undefined && minutes === undefined && seconds === undefined) {
+      time = now.toLocaleString();
+      return  time;
+    } else {
+      return <></>
+  }}
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="timer">
+        <h1>Current Date and Time</h1>
+        <div className="datetime">
+         <p><DateTime days={true} hours={true} minutes={true} seconds={true} /></p>
+         <p><DateTime /></p>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount(count + 1)}>
-          count is {count}
-        </button>
-        <button onClick={alot}> {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
+
 
 export default App
