@@ -40,3 +40,24 @@
 .read-the-docs {
   color: #888;
 }
+
+.format-button {
+  margin: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #e5e7eb; /* light gray */
+  color: black;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.format-button:hover {
+  background-color: #d1d5db; /* slightly darker gray */
+}
+
+.format-button.active {
+  background-color: #3b82f6; /* blue */
+  color: white;
+  border-color: #2563eb; /* darker blue */
+}

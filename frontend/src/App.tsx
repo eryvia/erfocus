@@ -1,5 +1,30 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import FormatButton from './FormatButtonProps';
 import './App.css'
+
+const CountdownFormatSelector = () => {
+   const [selected, setSelected] = useState<string[]>([]);
+
+   const toggleSector = (sector: string) => {
+    setSelected((prev) => prev.includes(sector) ? prev.filter((u) => u !== sector) : [...prev, sector]);
+  }
+  console.log(selected);
+
+  return (
+    <div>
+      {["days", "hours", "minutes", "seconds"].map((sector) => (
+        <FormatButton
+          key={sector}
+          label={sector}
+          active={selected.includes(sector)}
+          onToggle={() => toggleSector(sector)}
+        />
+      ))}
+      <p className="mt-2">Selected: {selected.join(", ") || "none"}</p>
+    </div>
+  );
+};
+
 
 function App() {
   const [currentTime, setCurrentTime] = React.useState(new Date());
@@ -16,27 +41,11 @@ function App() {
   const minutes: string = currentTime.getMinutes().toString().padStart(2, "0");
   const seconds: string = currentTime.getSeconds().toString().padStart(2, "0");
 
-  interface CountdownProps  {
-      days?: boolean,
-      hours?: boolean,
-      minutes?: boolean,
-      seconds?: boolean
-  }
-
   const GetCurrentTime = (): { hours: string; minutes: string; } => {
     return { hours, minutes };
   }
 
-  const CountDownTimer: React.FC<CountdownProps> = ({ days, hours, minutes, seconds }) => {
-    const now: Date = currentTime;
-    console.log(now); 
-    let time: string = "";
-    if (days === undefined && hours === undefined && minutes === undefined && seconds === undefined) {
-      time = now.toLocaleString();
-      return time;
-    } else {
-      return <></>
-  }}
+  
   return (
     <>
       <div className="timer">
@@ -45,12 +54,13 @@ function App() {
           <p>{days} : {GetCurrentTime().hours} : {GetCurrentTime().minutes} : {seconds}</p>
         </div>
         <div className="datetime" >
-          <input type="checkbox" value="gaga" onChange={(e) => e.target.checked} />
-         <p><CountDownTimer days={true} hours={true} minutes={true} seconds={true} /></p>
+          <CountdownFormatSelector />
         </div>
       </div> 
     </>
   )
 }
+
+//just want to say that <b>mdn_</b> really did help a tons.
 
 export default App
