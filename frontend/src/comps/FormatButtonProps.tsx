@@ -1,4 +1,3 @@
-
 interface FormatButtonProps {
   label: string;
   active: boolean;
