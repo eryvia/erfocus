@@ -3,7 +3,7 @@ import DefaultTime from './screens/defaultTime';
 import Countdown from './screens/countdown';
 import { ScreenSwitcher } from './comps/screenSwitcher';
 import './App.css'
-import UseAnimationFrame from './comps/motion-dev/spinningCube';
+
 
 export default function App() {
   const [activeScreen, setActiveScreen] = useState<"defaultTime" | "countdown">("defaultTime");
@@ -15,7 +15,6 @@ export default function App() {
       {activeScreen === "countdown" && <Countdown />}
     </div>
     <div>
-      <UseAnimationFrame />
       <ScreenSwitcher active={activeScreen} onSwitch={setActiveScreen} />
     </div>
     </>

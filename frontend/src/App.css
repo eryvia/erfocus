@@ -61,3 +61,8 @@
   color: white;
   border-color: #2563eb; /* darker blue */
 }
+.number-text {
+  font-family: "Satoshi";
+  font-size: 8rem;
+  font-weight: 900;
+}

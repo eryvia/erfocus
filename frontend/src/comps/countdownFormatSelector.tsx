@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FormatButton from "./FormatButtonProps";
+import GestureBox from "./motion-dev/gestureBox";
 
 
 export const CountdownFormatSelector = () => {
@@ -21,6 +22,7 @@ export const CountdownFormatSelector = () => {
         />
       ))}
       <p className="mt-2">Selected: {selected.join(", ") || "none"}</p>
+      <GestureBox />
     </div>
   );
 };
