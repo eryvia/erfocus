@@ -1,0 +1,39 @@
+
+.switcher-mainSwitcher {
+  position: fixed;
+  bottom: 100px;                  /* distance from the bottom edge */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;                        /* space between buttons */
+  z-index: 10;                  /* keeps above background */
+  user-select: none;
+}
+
+.switcher-btn.mainSwitcher {
+  padding: 0.6rem 1.4rem;
+  border: 2px solid #8df0cc;
+  border-radius: 9999px;
+  background-color: transparent;
+  color: #8df0cc;
+  font-family: "Satoshi", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.switcher-btn.mainSwitcher.active {
+  background-color: #8df0cc;
+  color: #00332a;                   /* darker tone for better contrast */
+  transform: translateY(-2px);      /* subtle lift effect */
+  box-shadow: 0 4px 10px rgba(141, 240, 204, 0.2);
+}
+
+.switcher-btn.mainSwitcher:hover {
+  background-color: rgba(141, 240, 204, 0.15);
+  box-shadow: 0 0 6px rgba(141, 240, 204, 0.2);
+}
+

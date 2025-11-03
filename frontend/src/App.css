@@ -65,4 +65,33 @@
   font-family: "Satoshi";
   font-size: 8rem;
   font-weight: 900;
+  padding-bottom: 170px;
+}
+.date-text {
+  font-family: "Satoshi";
+  font-size: 2rem;
+  font-weight: 500;
+  color: #8df0cc;
+  padding-bottom: 40ox;
+} 
+
+
+/*Pixel Art Background Styling */
+.pixel-bg {
+  position: fixed;
+  inset: 0;                    
+  background-color: #1c3b32;  
+  background-image: url("/src/assets/tree-background.png");
+  background-repeat: no-repeat; 
+  background-position: left 8% bottom; /* or right bottom / left bottom / center bottom */
+  background-size: 512px auto; 
+  image-rendering: pixelated;  /* keeps pixels sharp */
+  z-index: -1;                 /* stay behind everything - yes !important <b>comments</b>*/
+}
+
+.pixel-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 59, 50, 0.6); /* overlay */
 }

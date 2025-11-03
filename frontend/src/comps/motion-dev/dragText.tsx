@@ -19,7 +19,7 @@ export default function DragText({ textDrag }: DragTextProps) {
 
 const text = {
   fontFamily: "Satoshi",
-  fontSize: 50,
+  fontSize: 55,
   color: "#E0E1DD",
   cursor: "grab",
 }

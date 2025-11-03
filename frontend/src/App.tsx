@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import DefaultTime from './screens/defaultTime';
 import Countdown from './screens/countdown';
-import { ScreenSwitcher } from './comps/screenSwitcher';
+import { ScreenSwitcher } from './comps/screenSwitcher/screenSwitcher';
 import './App.css'
+
+
 
 
 export default function App() {
@@ -10,13 +12,17 @@ export default function App() {
 
   return (
     <>
-    <div className="app-conteiner">
+    <div className="screen-container">
       {activeScreen === "defaultTime" && <DefaultTime />}
       {activeScreen === "countdown" && <Countdown />}
     </div>
-    <div>
-      <ScreenSwitcher active={activeScreen} onSwitch={setActiveScreen} />
-    </div>
+    <ScreenSwitcher
+      screens={["defaultTime", "countdown"]}
+      active={activeScreen}
+      onSwitch={setActiveScreen}
+      className='mainSwitcher'
+    /> 
+    <div className="pixel-bg" /> {/*OMG, yes its my pixel art, and yes it TOOK HOURS TO DO.*/}
     </>
   )
 }

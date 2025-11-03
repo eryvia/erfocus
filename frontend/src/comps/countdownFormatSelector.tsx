@@ -1,9 +1,13 @@
-import { useState } from "react";
+
 import FormatButton from "./FormatButtonProps";
 
-export const CountdownFormatSelector = () => {
-   const [selected, setSelected] = useState<string[]>([]);
 
+interface CountdownFormatSelectorProps {
+  selected: string[];
+  setSelected: React.Dispatch<React.SetStateAction<string[]>>;
+}
+
+export const CountdownFormatSelector = ({ selected, setSelected }: CountdownFormatSelectorProps) => {
    const toggleSector = (sector: string) => {
     setSelected((prev) => prev.includes(sector) ? prev.filter((u) => u !== sector) : [...prev, sector]);
   }
@@ -26,7 +30,7 @@ export const CountdownFormatSelector = () => {
           onToggle={() => toggleSector(sector.nickname)}
         />
       ))}
-      <p className="mt-2">Selected: {selected.join(" ,") || "none"}</p>
+      <p className="mt-2">Selected: {selected.join(", ") || "none"}</p>
       
     </div>
   );
