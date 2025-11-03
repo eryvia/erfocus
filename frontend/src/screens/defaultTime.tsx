@@ -6,7 +6,7 @@ export default function DefaultTime() {
 
   return (
     <div>
-      <DragText textDrag="Hello, eryvia. drag me out, if u want me gone." />
+      <DragText textDrag="Hello, ..... drag me out, if u want me gone." />
       <p className="number-text">
         {days} : {hours} : {minutes} : {seconds}
       </p>

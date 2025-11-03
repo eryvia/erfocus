@@ -1,7 +1,5 @@
 import { useState } from "react";
 import FormatButton from "./FormatButtonProps";
-import GestureBox from "./motion-dev/gestureBox";
-
 
 export const CountdownFormatSelector = () => {
    const [selected, setSelected] = useState<string[]>([]);
@@ -11,18 +9,25 @@ export const CountdownFormatSelector = () => {
   }
   console.log(selected);
 
+  const times = [
+    {time: "days", nickname: "D"},
+    {time: "hours", nickname: "H"},
+    {time: "minutes", nickname: "M"},
+    {time: "seconds", nickname: "S"},
+  ]
+
   return (
     <div>
-      {["days", "hours", "minutes", "seconds"].map((sector) => (
+      {times.map((sector) => (
         <FormatButton
-          key={sector}
-          label={sector}
-          active={selected.includes(sector)}
-          onToggle={() => toggleSector(sector)}
+          key={sector.nickname}
+          label={sector.nickname}
+          active={selected.includes(sector.nickname)}
+          onToggle={() => toggleSector(sector.nickname)}
         />
       ))}
-      <p className="mt-2">Selected: {selected.join(", ") || "none"}</p>
-      <GestureBox />
+      <p className="mt-2">Selected: {selected.join(" ,") || "none"}</p>
+      
     </div>
   );
 };
